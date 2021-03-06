@@ -16,7 +16,7 @@ nginx:
 openresty:
   pkg.installed:
 {% else %}
-{% if salt['pillar.get']('nginx:mainline', false )%}
+{% if salt['pillar.get']('nginx:mainline', false ) %}
 {% set mainline = 'mainline/' %}
 {% else mainline = '' %}
 {% endif %}
@@ -40,12 +40,12 @@ nginx.service:
     - enable: true
 {% endif %}
 
-{% for vhost in salt['pillar.get']('nginx:vhosts')%}
+{% for vhost in salt['pillar.get']('nginx:vhosts') %}
 /etc/nginx/conf.d/{{ vhost }}.conf:
   file.managed:
       - source: salt://nginx/vhost.conf.j2
       - template: jinja
       - user: root
       - group: root
-      - mode: 644
+      - mode: '0644'
 {% endfor %}
