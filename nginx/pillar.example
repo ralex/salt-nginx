@@ -1,0 +1,8 @@
+nginx:
+  openresty: true
+  mainline: false
+  vhosts:
+    default:
+      listen: 80
+    default-ssl:
+      listen: 443
