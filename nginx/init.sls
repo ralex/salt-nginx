@@ -11,7 +11,7 @@ nginx.service:
     - enable: false
 
 nginx:
-  pkg.removed:
+  pkg.removed
 
 openresty:
   pkg.installed:
@@ -31,10 +31,10 @@ openresty.service:
     - enable: false
 
 openresty:
-  pkg.removed:
+  pkg.removed
 
 nginx:
-  pkg.installed:
+  pkg.installed
 
 nginx.service:
   service.running:
