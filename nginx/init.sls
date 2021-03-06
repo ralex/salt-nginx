@@ -18,7 +18,8 @@ openresty:
 {% else %}
 {% if salt['pillar.get']('nginx:mainline', false ) %}
 {% set mainline = 'mainline/' %}
-{% else mainline = '' %}
+{% else %}
+{% set mainline = '' %}
 {% endif %}
 deb https://nginx.org/packages/{{ mainline }}debian/ {{ salt['pillar.get'](lsb_distrib_codename) }} nginx:
   pkgrepo.managed:
